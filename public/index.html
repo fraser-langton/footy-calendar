@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Footy Calendar — AFL & AFLW, in your calendar</title>
+<meta name="description" content="Choose your AFL and AFLW teams. Get a free calendar subscription link for Apple Calendar, Google Calendar or Outlook.">
+<meta name="theme-color" content="#163d32"><link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script>
+</head>
+<body>
+<header><a class="brand" href="/" aria-label="Footy Calendar home"><svg width="29" height="29" viewBox="0 0 32 32" fill="none" aria-hidden="true"><ellipse cx="16" cy="16" rx="9" ry="15" transform="rotate(40 16 16)" stroke="currentColor" stroke-width="2"/><path d="m12 12 8 8m-7-5 3-3m-1 5 3-3m-1 5 3-3" stroke="currentColor" stroke-width="1.6"/></svg>Footy Calendar</a><span class="header-note">AFL + AFLW</span></header>
+<main>
+<div class="intro"><h1>Footy. In your calendar.</h1><p>Pick your teams. Add your calendar. Never double-book a game.</p></div>
+<p id="load-state" role="status">Loading the fixture…</p>
+<noscript><p>Please enable JavaScript to choose your teams. You can also <a href="/calendar.ics">subscribe to every AFL and AFLW match</a>.</p></noscript>
+<div id="app" class="layout" hidden>
+<form id="filters" aria-label="Choose calendar matches">
+<fieldset><legend>Which competitions?</legend><div class="competitions"><label class="competition"><input type="checkbox" name="competition" value="afl" checked><span><strong>AFL</strong><small>Men’s competition</small></span></label><label class="competition"><input type="checkbox" name="competition" value="aflw" checked><span><strong>AFLW</strong><small>Women’s competition</small></span></label></div></fieldset>
+<fieldset class="team-section"><div class="section-title"><legend>Your teams <span id="team-count">All 18</span></legend><div class="text-actions"><button type="button" id="select-all">Select all</button><button type="button" id="clear-teams">Clear</button></div></div><p class="hint">Follow a few favourites, or keep the whole league.</p><div id="teams" class="teams"></div></fieldset>
+<details class="more"><summary>More filters <span id="extra-count"></span></summary><div class="more-fields"><label>Venue<select name="venue" id="venue"><option value="">All venues</option></select></label><label>Season stage<select name="stage"><option value="">All matches</option><option value="regular">Regular season</option><option value="finals">Finals</option></select></label><label>Home or away<select name="side"><option value="">Home & away</option><option value="home">Home games for selected teams</option><option value="away">Away games for selected teams</option></select></label></div></details>
+<button id="reset" class="reset" type="reset">Reset all filters</button>
+</form>
+<aside class="subscription" aria-labelledby="calendar-heading"><div class="pitch-mark" aria-hidden="true"><svg viewBox="0 0 300 86" fill="none"><ellipse cx="150" cy="66" rx="128" ry="57"/><ellipse cx="150" cy="66" rx="25" ry="20"/><path d="M150 9v114M22 66h256M49 30v72M251 30v72"/></svg></div><div class="subscription-body"><h2 id="calendar-heading">Your footy calendar</h2><p id="selection-summary" class="selection-summary" aria-live="polite"></p><p class="subscription-note">Subscribe once. Fixture updates appear when your calendar app refreshes.</p><label class="link-label" for="calendar-url">Your subscription link</label><div class="copy-row"><input id="calendar-url" type="url" readonly aria-label="Calendar subscription URL"><button id="copy" type="button">Copy link</button></div><p id="copy-status" role="status" class="copy-status"></p><a id="apple" class="primary" href="/calendar.ics">Add to Apple Calendar <span aria-hidden="true">↗</span></a><a id="google" class="secondary" href="https://calendar.google.com/" target="_blank" rel="noopener">Add to Google Calendar <span aria-hidden="true">↗</span></a><details class="instructions"><summary>Outlook or another calendar?</summary><p>In Outlook on the web, choose <strong>Add calendar → Subscribe from web</strong>, then paste the link above. In other apps, look for <strong>Subscribe</strong> or <strong>From URL</strong>.</p><p>Subscribe to the link to receive updates. Importing a downloaded file is a one-time copy.</p></details><p id="empty-selection" class="empty-selection" hidden>Select at least one team and competition to create your calendar.</p></div></aside>
+<section class="preview" aria-labelledby="preview-heading"><div class="preview-heading"><h2 id="preview-heading">Coming up</h2><span id="timezone"></span></div><ul id="matches" class="matches"></ul><p id="no-matches" hidden>No upcoming matches with these filters. Try another team or venue.</p><p class="data-note" id="data-note"></p></section>
+</div>
+</main>
+<footer><p>An independent footy project. Not affiliated with the AFL.</p><p>Fixture data: <a href="https://fixturedownload.com/sport/aussie-rules" target="_blank" rel="noopener">Fixture Download</a>. Check <a href="https://www.afl.com.au/fixture" target="_blank" rel="noopener">AFL.com.au</a> for official details. <a href="https://github.com/fraser-langton/footy-calendar">Source & fixture updates</a></p></footer>
+</body></html>
